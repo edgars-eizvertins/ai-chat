@@ -1,0 +1,35 @@
+﻿@page "/"
+@using System.Net.Http.Json
+@inject HttpClient Http
+
+<h3>Weather Forecast</h3>
+
+@if (weatherForecast != null)
+{
+    <ul>
+        @foreach (var forecast in weatherForecast)
+        {
+            <li>@forecast.Date.ToShortDateString() - @forecast.Summary - @forecast.TemperatureC°C</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+@code {
+    private WeatherForecast[]? weatherForecast;
+
+    protected override async Task OnInitializedAsync()
+    {
+        weatherForecast = await Http.GetFromJsonAsync<WeatherForecast[]>("weatherforecast");
+    }
+
+    public class WeatherForecast
+    {
+        public DateTime Date { get; set; }
+        public int TemperatureC { get; set; }
+        public string? Summary { get; set; }
+    }
+}

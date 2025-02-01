@@ -1,0 +1,29 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+	  {
+		"name": "API",
+		"type": "coreclr",
+		"request": "launch",
+		"preLaunchTask": "build API",
+		"program": "${workspaceFolder}/AIAssistantAPI/bin/Debug/net8.0/AIAssistantAPI.dll",
+		"args": [],
+		"cwd": "${workspaceFolder}/AIAssistantAPI",
+		"stopAtEntry": false,
+		"serverReadyAction": {
+		  "action": "openExternally",
+		  "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+		},
+		"env": {
+		  "ASPNETCORE_ENVIRONMENT": "Development"
+		}
+	  }
+	],
+	"compounds": [
+	  {
+		"name": "Run Both API and Blazor",
+		"configurations": ["API", "Blazor"]
+	  }
+	]
+  }
+  

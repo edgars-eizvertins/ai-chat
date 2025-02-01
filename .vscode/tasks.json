@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "build API",
+		"type": "shell",
+		"command": "dotnet build ${workspaceFolder}/AIAssistantAPI",
+		"problemMatcher": "$msCompile",
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		},
+		"detail": "Build API project"
+	  },
+	  {
+		"label": "build Blazor",
+		"type": "shell",
+		"command": "dotnet build ${workspaceFolder}/AIAssistantUI",
+		"problemMatcher": "$msCompile",
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		},
+		"detail": "Build Blazor project"
+	  },
+	  {
+		"label": "build both",
+		"dependsOn": [
+		  "build API",
+		  "build Blazor"
+		],
+		"type": "shell",
+		"command": "echo 'Building both API and Blazor projects'",
+		"problemMatcher": [],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		},
+		"detail": "Build both API and Blazor projects"
+	  }
+	]
+  }
+  

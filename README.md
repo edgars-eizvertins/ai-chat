@@ -1,2 +1,2 @@
 # ai-chat
-Application for education ralated to AI and ,NET
+Application for education related to AI and .NET
